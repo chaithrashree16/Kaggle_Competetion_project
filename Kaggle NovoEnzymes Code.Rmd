@@ -1,0 +1,92 @@
+---
+title: "Kaggle NovoEnzymes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+title: "Kaggle NovoEnzymes"
+
+output: html_document
+
+---
+
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+
+
+
+
+
+## Libraries
+
+
+```{r}
+
+
+
+library(tidyverse)
+
+
+
+
+
+
+
+```
+
+
+
+## Reading in data
+
+
+
+```{r}
+
+train = read.csv("train.csv")
+
+training_updates= read.csv("train_updates_20220929.csv")
+
+head(train)
+
+```
+
+
+
+
+### Data Cleaning for update (dropping bad data)
+
+
+
+
+
+```{r}
+
+
+
+# Creating a vector of seq ID's that need to be eliminated
+
+seq_id_list = training_updates$seq_id
+
+head(train)
+
+
+
+# Getting id of all the Bad Rows.
+
+Updated_Train= train[!train$seq_id %in% seq_id_list ,]
+
+
+
+```
